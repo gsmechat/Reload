@@ -5,7 +5,7 @@
 ** Login   <mechat_g@etna-alternance.net>
 ** 
 ** Started on  Tue Feb  9 01:52:03 2016 MECHAT Guillaume
-** Last update Tue Feb  9 04:31:48 2016 MECHAT Guillaume
+** Last update Tue Feb  9 04:54:47 2016 MECHAT Guillaume
 */
 #include <stdlib.h>
 
@@ -35,7 +35,7 @@ char	*parcours(char *str)
       i = i + 1;
       j = j + 1;
     }
-  my_putstr("prog = ");
+  my_putstr("\n\nprog = ");
   my_putstr(prog);
   my_putstr("\narg = ");
   my_putstr(arg);
