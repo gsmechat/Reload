@@ -5,21 +5,24 @@
 ## Login   <mechat_g@etna-alternance.net>
 ## 
 ## Started on  Sat Oct 24 23:10:00 2015 MECHAT Guillaume
-## Last update Tue Feb  9 01:15:56 2016 MECHAT Guillaume
+## Last update Tue Feb  9 01:58:08 2016 MECHAT Guillaume
 ##
 
 CC	=	gcc
 AR	=	ar r
-NAME	=	libparse.a
+LIB	=	libparse.a
+PROG	=	main.c
 SRC	=	my_putchar.c	\
 		my_putstr.c	\
+		libparse.c	\
 
 RM	=	rm -f
 
 all:		
 		$(CC) -c $(SRC)
-		ar -rcs $(NAME) *.o
-		ranlib $(NAME)
+		ar -rcs $(LIB) *.o
+		ranlib $(LIB)
+		$(CC) $(PROG) $(LIB)
 
 clean:
 		$(RM) *.o
