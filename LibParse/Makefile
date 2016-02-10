@@ -5,7 +5,7 @@
 ## Login   <mechat_g@etna-alternance.net>
 ## 
 ## Started on  Sat Oct 24 23:10:00 2015 MECHAT Guillaume
-## Last update Tue Feb  9 02:21:14 2016 MECHAT Guillaume
+## Last update Tue Feb  9 04:45:13 2016 MECHAT Guillaume
 ##
 
 CC	=	gcc
@@ -16,6 +16,7 @@ SRC	=	my_putchar.c	\
 		my_putstr.c	\
 		my_strcmp.c	\
 		libparse.c	\
+		header.h	\
 
 RM	=	rm -f
 
