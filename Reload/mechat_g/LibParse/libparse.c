@@ -5,15 +5,18 @@
 ** Login   <mechat_g@etna-alternance.net>
 ** 
 ** Started on  Tue Feb  9 01:52:03 2016 MECHAT Guillaume
-** Last update Fri Feb 12 11:58:03 2016 MECHAT Guillaume
+** Last update Fri Feb 12 13:17:43 2016 MECHAT Guillaume
 */
 #include <stdlib.h>
 #include "header.h"
 
-void		affiche(t_parse *parse)
+int		affiche(t_parse *parse)
 {
   t_parse	*tmp;
 
+  tmp = malloc(sizeof(t_parse));
+  if (tmp == NULL)
+    return (0);
   tmp = parse;
   while (tmp != NULL)
     {
@@ -25,11 +28,12 @@ void		affiche(t_parse *parse)
       my_putstr("\n\n------------------\n\n");
       tmp = tmp->next;
     }
+  free(tmp);
 }
 
-t_parse         *add_parse(t_parse *parse, char *prog, char *arg)
+t_parse		*add_parse(t_parse *parse, char *prog, char *arg)
 {
-  t_parse       *tmp;
+  t_parse	*tmp;
 
   tmp = malloc(sizeof(t_parse));
   if (tmp == NULL)
@@ -43,7 +47,7 @@ t_parse         *add_parse(t_parse *parse, char *prog, char *arg)
   return (tmp);
 }
 
-int		verif_same_prog(t_parse *parse, char *prog, char *arg)
+t_parse		*verif_same_prog(t_parse *parse, char *prog, char *arg)
 {
   int		result;
   t_parse	*tmp;
@@ -58,19 +62,18 @@ int		verif_same_prog(t_parse *parse, char *prog, char *arg)
   while (tmp != NULL)
     {
       result = my_strcmp(tmp->prog, prog);
-      my_putstr("ici result = ");
-      my_putchar(result);
       if (result == 0)
 	stop = 1;
+      tmp = tmp->next;
     }
   if (stop != 1)
     {
       parse = add_parse(parse, prog, arg);
     }
-  affiche(parse);
+  return (parse);
 }
 
-char		*parcours(char *str, t_parse *parse)
+t_parse		*parcours(char *str, t_parse *parse)
 {
   int		i;
   int		j;
@@ -96,7 +99,7 @@ char		*parcours(char *str, t_parse *parse)
       i = i + 1;
       j = j + 1;
     }
-  verif_same_prog(parse, prog, arg);
+  return (parse = verif_same_prog(parse, prog, arg));
 }
 
 void		libparse(int ac, char **av)
@@ -111,9 +114,9 @@ void		libparse(int ac, char **av)
   while (i < ac)
     {
       if (av[i][0] == '-')
-	parcours(av[i], parse);
-      //      else
-      //my_putstr("SYNTAX: ./liparse -prog:argument");
+	parse = parcours(av[i], parse);
       i = i + 1;
     }
+  affiche(parse);
+  free(parse);
 }
