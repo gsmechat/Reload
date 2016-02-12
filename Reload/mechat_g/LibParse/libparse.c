@@ -5,7 +5,7 @@
 ** Login   <mechat_g@etna-alternance.net>
 ** 
 ** Started on  Tue Feb  9 01:52:03 2016 MECHAT Guillaume
-** Last update Fri Feb 12 13:17:43 2016 MECHAT Guillaume
+** Last update Fri Feb 12 13:21:07 2016 MECHAT Guillaume
 */
 #include <stdlib.h>
 #include "header.h"
@@ -79,7 +79,7 @@ t_parse		*parcours(char *str, t_parse *parse)
   int		j;
   char		*prog;
   char		*arg;
-  
+
   i = 0;
   j = 0;
   prog = malloc(sizeof(char));
@@ -106,7 +106,7 @@ void		libparse(int ac, char **av)
 {
   int		i;
   t_parse	*parse;
-  
+
   i = 1;
   parse = NULL;
   if (ac == 1)
