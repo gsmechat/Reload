@@ -5,14 +5,31 @@
 ** Login   <mechat_g@etna-alternance.net>
 ** 
 ** Started on  Tue Feb  9 01:52:03 2016 MECHAT Guillaume
-** Last update Fri Feb 12 10:34:33 2016 MECHAT Guillaume
+** Last update Fri Feb 12 11:58:03 2016 MECHAT Guillaume
 */
 #include <stdlib.h>
 #include "header.h"
 
-t_parse		*add_parse(t_parse *parse, char *prog, char *arg)
+void		affiche(t_parse *parse)
 {
   t_parse	*tmp;
+
+  tmp = parse;
+  while (tmp != NULL)
+    {
+      my_putstr("Nom du programme : ");
+      my_putstr(tmp->prog);
+      my_putstr("\n");
+      my_putstr("Les arguments: ");
+      my_putstr(tmp->arg);
+      my_putstr("\n\n------------------\n\n");
+      tmp = tmp->next;
+    }
+}
+
+t_parse         *add_parse(t_parse *parse, char *prog, char *arg)
+{
+  t_parse       *tmp;
 
   tmp = malloc(sizeof(t_parse));
   if (tmp == NULL)
@@ -26,21 +43,31 @@ t_parse		*add_parse(t_parse *parse, char *prog, char *arg)
   return (tmp);
 }
 
-void            affiche(t_parse *parse)
+int		verif_same_prog(t_parse *parse, char *prog, char *arg)
 {
-  t_parse       *tmp;
+  int		result;
+  t_parse	*tmp;
+  int		stop;
 
+  result = 1;
+  stop = 0;
+  tmp = malloc(sizeof(t_parse));
+  if (tmp == NULL)
+    return (0);
   tmp = parse;
   while (tmp != NULL)
     {
-      my_putstr("Nom du programme : ");
-      my_putstr(tmp->prog);
-      my_putstr("\n");
-      my_putstr("Les arguments: ");
-      my_putstr(tmp->arg);
-      my_putstr("\n\n------------------\n\n");
-      tmp = tmp->next;
+      result = my_strcmp(tmp->prog, prog);
+      my_putstr("ici result = ");
+      my_putchar(result);
+      if (result == 0)
+	stop = 1;
     }
+  if (stop != 1)
+    {
+      parse = add_parse(parse, prog, arg);
+    }
+  affiche(parse);
 }
 
 char		*parcours(char *str, t_parse *parse)
@@ -69,8 +96,7 @@ char		*parcours(char *str, t_parse *parse)
       i = i + 1;
       j = j + 1;
     }
-  parse = add_parse(parse, prog, arg);
-  affiche(parse);
+  verif_same_prog(parse, prog, arg);
 }
 
 void		libparse(int ac, char **av)
