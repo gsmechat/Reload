@@ -5,18 +5,18 @@
 ## Login   <mechat_g@etna-alternance.net>
 ## 
 ## Started on  Sat Oct 24 23:10:00 2015 MECHAT Guillaume
-## Last update Tue Feb  9 05:44:25 2016 MECHAT Guillaume
+## Last update Fri Feb 12 23:31:12 2016 MECHAT Guillaume
 ##
 
 CC	=	gcc
-NAME	=	libparse
+NAME	=	liblist
 AR	=	ar r
-LIB	=	libparse.a
+LIB	=	liblist.a
 SRC	=	main.c		\
 		my_putchar.c	\
 		my_putstr.c	\
 		my_strcmp.c	\
-		libparse.c	\
+		liblist.c	\
 		header.h
 
 FLAG	=	-W -Wall -Werror -Wextra

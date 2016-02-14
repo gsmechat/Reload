@@ -5,17 +5,21 @@
 ** Login   <mechat_g@etna-alternance.net>
 ** 
 ** Started on  Tue Feb  9 04:35:10 2016 MECHAT Guillaume
-** Last update Tue Feb  9 04:44:39 2016 MECHAT Guillaume
+** Last update Sat Feb 13 00:01:15 2016 MECHAT Guillaume
 */
 
 #ifndef HEADER_H_
 # define HEADER_H_
 
-typedef struct		s_parse
+typedef struct		s_list
 {
-  char			*prog;
-  char			*arg;
-  struct s_parse	*next;
-}			t_parse;
+  char			*name;
+  struct s_list		*next;
+}			t_list;
+
+t_list			*createList();
+t_list			*addList(t_list *list, char *element);
+int			searchList(t_list *list, char *element);
+t_list			*deleteList(t_list *list, char *element);
 
 #endif
