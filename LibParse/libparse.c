@@ -5,7 +5,7 @@
 ** Login   <mechat_g@etna-alternance.net>
 ** 
 ** Started on  Tue Feb  9 01:52:03 2016 MECHAT Guillaume
-** Last update Fri Feb 12 13:21:07 2016 MECHAT Guillaume
+** Last update Fri Feb 12 19:42:51 2016 MECHAT Guillaume
 */
 #include <stdlib.h>
 #include "header.h"
@@ -108,6 +108,8 @@ void		libparse(int ac, char **av)
   t_parse	*parse;
 
   i = 1;
+  if (parse == NULL)
+    return (0);
   parse = NULL;
   if (ac == 1)
     my_putstr("SYNTAX: ./liparse -prog:argument");
