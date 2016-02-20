@@ -5,10 +5,12 @@
 ** Login   <mechat_g@etna-alternance.net>
 ** 
 ** Started on  Fri Feb 12 18:15:01 2016 MECHAT Guillaume
-** Last update Sat Feb 13 00:00:16 2016 MECHAT Guillaume
+** Last update Sat Feb 20 19:45:40 2016 MECHAT Guillaume
 */
 #include "header.h"
 #include <stdlib.h>
+#include <unistd.h>
+#include <stdio.h>
 
 t_list		*createList()
 {
@@ -20,13 +22,23 @@ t_list		*createList()
   list = NULL;
   return (list);
 }
-/*
-int		destroy(t_list *list)
-{
 
-  return (1);
+t_list		*destroyList(t_list *list)
+{
+  t_list	*tmp;
+
+  tmp = malloc(sizeof(t_list));
+  if (tmp == NULL)
+    return (0);
+  while (list != NULL)
+    {
+      tmp = list->next;
+      free(list);
+      list = tmp;
+    }
+  return (list);
 }
-*/
+
 int		searchList(t_list *list, char *element)
 {
   t_list	*tmp;
@@ -44,28 +56,22 @@ int		searchList(t_list *list, char *element)
   return (0);
 }
 
-t_list		*deleteList(t_list *list, char *element)
+/*t_list		*deleteList(t_list *list, char *element)
 {
-  t_list	*tmp;
-  int		stop;
-
-  stop = 0;
-  tmp = malloc(sizeof(t_list));
-  if (tmp == NULL)
-    return (0);
+  char		*prev;
+  
+  while ((list = list->next) != NULL)
+    {
+      if (my_strcmp(list->name, element) == 0)
+	{
+	  tmp->next = list->next;
+	  free(list);
+	  break;
+	}
+    }
   tmp = list;
-  while (tmp != NULL && stop != 1)
-    {
-      if (my_strcmp(tmp->name, element) == 0)
-	stop = 1;
-      tmp = tmp->next;
-    }
-  while (tmp->next != NULL)
-    {
-      tmp = tmp->next;
-    }
   return (tmp);
-}
+  }*/
 
 t_list		*addList(t_list *list, char *element)
 {
