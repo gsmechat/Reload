@@ -5,7 +5,7 @@
 ** Login   <mechat_g@etna-alternance.net>
 ** 
 ** Started on  Mon Feb  8 20:40:04 2016 MECHAT Guillaume
-** Last update Sat Feb 20 22:51:24 2016 MECHAT Guillaume
+** Last update Sat Feb 20 23:18:41 2016 MECHAT Guillaume
 */
 #include "header.h"
 #include <stdlib.h>
@@ -52,4 +52,5 @@ int		main(int argc, char **argv)
 
   list = destroyList(list);
 
+  return (0);
 }
