@@ -5,7 +5,7 @@
 ** Login   <mechat_g@etna-alternance.net>
 ** 
 ** Started on  Fri Feb 12 18:15:01 2016 MECHAT Guillaume
-** Last update Sat Feb 20 19:45:40 2016 MECHAT Guillaume
+** Last update Tue Feb 23 10:27:11 2016 MECHAT Guillaume
 */
 #include "header.h"
 #include <stdlib.h>
@@ -36,6 +36,7 @@ t_list		*destroyList(t_list *list)
       free(list);
       list = tmp;
     }
+  free(tmp);
   return (list);
 }
 
@@ -53,6 +54,7 @@ int		searchList(t_list *list, char *element)
 	return (1);
       tmp = tmp->next;
     }
+  free(tmp);
   return (0);
 }
 
