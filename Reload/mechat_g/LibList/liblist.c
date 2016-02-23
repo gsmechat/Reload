@@ -5,7 +5,7 @@
 ** Login   <mechat_g@etna-alternance.net>
 ** 
 ** Started on  Fri Feb 12 18:15:01 2016 MECHAT Guillaume
-** Last update Tue Feb 23 10:27:11 2016 MECHAT Guillaume
+** Last update Tue Feb 23 11:51:32 2016 MECHAT Guillaume
 */
 #include "header.h"
 #include <stdlib.h>
@@ -58,22 +58,29 @@ int		searchList(t_list *list, char *element)
   return (0);
 }
 
-/*t_list		*deleteList(t_list *list, char *element)
+t_list		*deleteList(t_list *list, char *element)
 {
-  char		*prev;
-  
-  while ((list = list->next) != NULL)
+  t_list	*tmp;
+
+  tmp = malloc(sizeof(t_list));
+  if (tmp == NULL)
+    return (0);
+  if(list == NULL)
+    return (0);
+
+  if(my_strcmp(list->name, element) == 0)
     {
-      if (my_strcmp(list->name, element) == 0)
-	{
-	  tmp->next = list->next;
-	  free(list);
-	  break;
-	}
+      tmp = list->next;
+      free(list);
+      tmp = deleteList(tmp, element);
+      return (tmp);
     }
-  tmp = list;
-  return (tmp);
-  }*/
+  else
+    {
+      list->next = deleteList(list->next, element);
+      return (list);
+    }
+}
 
 t_list		*addList(t_list *list, char *element)
 {
