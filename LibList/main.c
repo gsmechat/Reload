@@ -5,7 +5,7 @@
 ** Login   <mechat_g@etna-alternance.net>
 ** 
 ** Started on  Mon Feb  8 20:40:04 2016 MECHAT Guillaume
-** Last update Tue Feb 23 10:14:32 2016 MECHAT Guillaume
+** Last update Tue Feb 23 11:47:34 2016 MECHAT Guillaume
 */
 #include "header.h"
 #include <stdlib.h>
@@ -29,7 +29,7 @@ int		main(int argc, char **argv)
   list = addList(list, "pipi");
   int j;
 
-  //  list = deleteList(list, "XD");
+    list = deleteList(list, "pipi");
   //printf("ici = %d", destroyList(list));
   //printf("LOL");
   j = searchList(list, "coucou");
@@ -44,7 +44,7 @@ int		main(int argc, char **argv)
   j = searchList(list, "XD");
   printf("%d", j);
 
-  list = destroyList(list);
+  //list = destroyList(list);
   
   j = searchList(list, "caca");
   printf("%d", j);
@@ -52,6 +52,13 @@ int		main(int argc, char **argv)
   j = searchList(list, "pipi");
   printf("%d", j);
 
-
+  /* t_list *tmp;
+  tmp = list;
+  while (tmp != NULL)
+    {
+      my_putstr(" \n ");
+      my_putstr(tmp->name);
+      tmp = tmp->next;
+      }*/
   return (0);
 }
