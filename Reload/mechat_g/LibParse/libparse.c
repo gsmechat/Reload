@@ -5,7 +5,7 @@
 ** Login   <mechat_g@etna-alternance.net>
 ** 
 ** Started on  Tue Feb  9 01:52:03 2016 MECHAT Guillaume
-** Last update Fri Feb 12 19:42:51 2016 MECHAT Guillaume
+** Last update Wed Feb 24 16:02:34 2016 MECHAT Guillaume
 */
 #include <stdlib.h>
 #include "header.h"
@@ -102,7 +102,7 @@ t_parse		*parcours(char *str, t_parse *parse)
   return (parse = verif_same_prog(parse, prog, arg));
 }
 
-void		libparse(int ac, char **av)
+int		libparse(int ac, char **av)
 {
   int		i;
   t_parse	*parse;
