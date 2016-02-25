@@ -5,7 +5,7 @@
 ## Login   <mechat_g@etna-alternance.net>
 ## 
 ## Started on  Sat Oct 24 23:10:00 2015 MECHAT Guillaume
-## Last update Tue Feb 23 10:07:41 2016 MECHAT Guillaume
+## Last update Thu Feb 25 20:42:40 2016 MECHAT Guillaume
 ##
 
 CC	=	gcc
@@ -16,7 +16,6 @@ SRC	=	main.c		\
 		my_putchar.c	\
 		my_putstr.c	\
 		my_strcmp.c	\
-		liblist.c	\
 		header.h
 
 FLAG	=	-W -Wall -Werror -Wextra
