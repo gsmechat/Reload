@@ -5,7 +5,7 @@
 ** Login   <mechat_g@etna-alternance.net>
 ** 
 ** Started on  Fri Feb 12 18:15:01 2016 MECHAT Guillaume
-** Last update Tue Feb 23 11:51:32 2016 MECHAT Guillaume
+** Last update Thu Feb 25 20:36:01 2016 MECHAT Guillaume
 */
 #include "header.h"
 #include <stdlib.h>
@@ -65,10 +65,10 @@ t_list		*deleteList(t_list *list, char *element)
   tmp = malloc(sizeof(t_list));
   if (tmp == NULL)
     return (0);
-  if(list == NULL)
+  if (list == NULL)
     return (0);
 
-  if(my_strcmp(list->name, element) == 0)
+  if (my_strcmp(list->name, element) == 0)
     {
       tmp = list->next;
       free(list);
