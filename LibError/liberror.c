@@ -5,7 +5,7 @@
 ** Login   <mechat_g@etna-alternance.net>
 ** 
 ** Started on  Thu Feb 25 10:34:48 2016 MECHAT Guillaume
-** Last update Thu Feb 25 22:40:30 2016 MECHAT Guillaume
+** Last update Thu Feb 25 22:57:56 2016 MECHAT Guillaume
 */
 
 #include <fcntl.h>
@@ -25,7 +25,7 @@ void	error()
 int	error_log(char *txt)
 {
   int	id;
-  
+
   id = open("log.txt", O_APPEND|O_CREAT|O_RDWR, 777);
   write_log(txt, id);
   write_log(": ", id);
