@@ -5,7 +5,7 @@
 ** Login   <mechat_g@etna-alternance.net>
 ** 
 ** Started on  Tue Feb  9 01:52:03 2016 MECHAT Guillaume
-** Last update Wed Feb 24 16:02:34 2016 MECHAT Guillaume
+** Last update Thu Feb 25 20:28:34 2016 MECHAT Guillaume
 */
 #include <stdlib.h>
 #include "header.h"
@@ -14,7 +14,7 @@ int		affiche(t_parse *parse)
 {
   t_parse	*tmp;
 
-  tmp = malloc(sizeof(t_parse));
+  tmp  = malloc(sizeof(t_parse));
   if (tmp == NULL)
     return (0);
   tmp = parse;
